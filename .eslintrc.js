@@ -1,0 +1,70 @@
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+  },
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:prettier/recommended'],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    $: 'readonly',
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2021,
+    sourceType: 'module',
+  },
+  plugins: ['react', 'prettier', 'unused-imports'],
+  rules: {
+    'react/prop-types': 'off',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+    'react/jsx-boolean-value': 'error',
+    'react/jsx-closing-bracket-location': 'error',
+    'react/jsx-curly-spacing': ['error', 'always'],
+    'react/jsx-equals-spacing': 'error',
+    'react/jsx-first-prop-new-line': 'error',
+    'react/jsx-handler-names': 'error',
+    'react/jsx-indent-props': ['error', 2],
+    'react/jsx-indent': ['error', 2],
+    'react/jsx-key': 'error',
+    'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
+    'react/jsx-no-bind': 'error',
+    'react/jsx-no-literals': 'off',
+    'react/jsx-no-target-blank': 'error',
+    'react/jsx-pascal-case': 'error',
+    'react/jsx-sort-props': 'error',
+    'no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      {
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+      },
+    ],
+    'prettier/prettier': 'error',
+    'max-len': ['error', { code: 2000 }],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      alias: [
+        ['@themes', './@themes/'],
+        ['@b2storefront/b2s_core', './src/b2s_core/src'],
+      ],
+    },
+  },
+}

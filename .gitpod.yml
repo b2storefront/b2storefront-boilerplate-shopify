@@ -1,0 +1,10 @@
+tasks:
+  - init: nvm install 18 && nvm use 18 && yarn install && yarn develop
+    command: nvm install 18 && nvm use 18 && yarn install && yarn develop
+vscode:
+  extensions:
+    - GraphQL.vscode-graphql
+    - kumar-harsh.graphql-for-vscode
+    - dsznajder.es7-react-js-snippets
+    - esbenp.prettier-vscode
+    - dbaeumer.vscode-eslint
