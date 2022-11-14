@@ -25,7 +25,16 @@ const ProductDetailsPage = ({ location, data, pageContext }) => {
   return <ProductPageTmpl {...ownProps} />
 }
 
-export const Head = () => ProductHeadScripts({...ownProps})
+export const Head = ({ location, pageContext }) => {
+  const ownProps = useProductDetailsCore({
+    location,
+    product: pageContext.product,
+    allProducts: pageContext.allProducts,
+    allCollections: pageContext.allCollections,
+  }) 
+
+  return ProductHeadScripts({...ownProps})
+}
 
 ProductDetailsPage.propTypes = {
   data: PropTypes.object,

@@ -13,6 +13,10 @@ const CategoryPage = ({ location, data, pageContext }) => {
   return <CategoryPageTmpl {...ownProps} />
 }
 
-export const Head = () => CategoryHeadScripts({...ownProps})
+export const Head = ({ location, pageContext, data }) => {
+  const ownProps = useCategoryCore(location, pageContext, data)
+  
+  return CategoryHeadScripts({...ownProps})
+}
 
 export default CategoryPage
