@@ -81,3 +81,6 @@ yarn-error.log
 # Editors
 .vscode/
 .history/
+
+.env.development
+.env.production
