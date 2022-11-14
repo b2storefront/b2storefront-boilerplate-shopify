@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-const { ProductHeadScripts } = require(`@themes/${process.env.B2S_THEME_NAME}/Templates/ProductPageTmpl`)
-const { CategoryHeadScripts } = require(`@themes/${process.env.B2S_THEME_NAME}/Templates/CategoryPageTmpl`)
 
 export default function HTML(props) {
   return (
@@ -14,8 +12,6 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"
         />
         {props.headComponents}
-        <ProductHeadScripts />
-        <CategoryHeadScripts />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

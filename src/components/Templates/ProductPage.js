@@ -4,6 +4,7 @@ import useProductDetailsCore from '@b2storefront/b2s_core/dist/components/Produc
 import useDebug from '@b2storefront/b2s_core/dist/hooks/useDebug'
 import { useDispatch } from 'react-redux'
 import { graphql } from 'gatsby'
+import { ProductHeadScripts } from '../../../themes/b2s-demo/Templates/ProductPageTmpl'
 
 const ProductPageTmpl = require(`@themes/${process.env.B2S_THEME_NAME}/Templates/ProductPageTmpl`).default
 
@@ -23,6 +24,8 @@ const ProductDetailsPage = ({ location, data, pageContext }) => {
 
   return <ProductPageTmpl {...ownProps} />
 }
+
+export const Head = () => ProductHeadScripts({...ownProps})
 
 ProductDetailsPage.propTypes = {
   data: PropTypes.object,
