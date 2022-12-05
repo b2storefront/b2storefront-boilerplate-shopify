@@ -2,6 +2,7 @@
 @import "./bootstrap/bootstrap.min.css";
 @import '../../../../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss';
 @import '../../../../node_modules/@glidejs/glide/src/assets/sass/glide.theme.scss';
+@import '../../../../node_modules/react-range-slider-input/dist/style.css';
 
 $maincolor: #fbb03b;
 
@@ -1417,4 +1418,28 @@ body.filters-active {
 
 .product__images .glide__arrow {
     border: none;
+    transition: box-shadow .5s ease;
+    box-shadow: 0 0.25em 0.5em 0 rgb(0, 0, 0, .1);
+    &:hover {
+        transition: box-shadow .5s ease;
+        box-shadow: inset 0 0.25em 8em 20px rgb(0, 0, 0, .1)
+    }
+}
+
+.breadcrumb-item.active {
+    background-color: transparent;
+    font-size: inherit;
+}
+
+.range-values {
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    span {
+        padding: 5px;
+        border: 1px solid #d0d0d0;
+        width: 70px;
+        text-align: center;
+    }
 }

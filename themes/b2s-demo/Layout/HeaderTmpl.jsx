@@ -40,9 +40,15 @@ const HeaderTmpl = (props) => {
                   </button>                    
                   <div className="collapse navbar-collapse navbar-menu" id="navbarMenu">
                       <div className="navbar-nav">
-                          <a className="nav-link" href="#">Men</a>
-                          <a className="nav-link" href="#">Women</a>
-                          <a className="nav-link" href="#">Kids</a>
+                          <Link className="nav-link" to="/collections/men/">
+                            Men
+                          </Link>
+                          <Link className="nav-link" to="/collections/women/">
+                            Women
+                          </Link>
+                          <Link className="nav-link" to="/collections/kid/">
+                            Kids
+                          </Link>
                       </div>
                   </div>
               </div>

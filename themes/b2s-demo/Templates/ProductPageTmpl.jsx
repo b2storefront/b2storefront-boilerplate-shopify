@@ -48,8 +48,8 @@ const ProductPageTmpl = (props) => {
                 <div className="glide">
                   <div className="glide__track" data-glide-el="track">
                     <ul className="glide__slides">
-                      {props.product.images.map(image => (
-                        <li className="glide__slide">
+                      {props.product.images.map((image, index) => (
+                        <li className="glide__slide" key={index}>
                           <img src={image.url} alt={props.product.title} />
                         </li>
                       ))}
@@ -57,10 +57,10 @@ const ProductPageTmpl = (props) => {
                   </div>
                   <div className="glide__arrows" data-glide-el="controls">
                     <button data-glide-dir="<" className="glide__arrow glide__arrow--left">
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
                     </button>
                     <button data-glide-dir=">" className="glide__arrow glide__arrow--right">
-                      <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                      <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                       </button>
                   </div>
                 </div>
@@ -115,9 +115,9 @@ const ProductPageTmpl = (props) => {
                       {option.name !== 'Color' && (
                         <div className="option-list">
                           <select className="form-select form-select-inline" aria-label="Default select example" onChange={(e) => props.handleSelectOption(option.id, e.target.value)}>
-                            <option selected>Select value</option>
-                            {option.values.map(value => (
-                              <option value={value}>{value}</option>
+                            <option defaultValue>Select value</option>
+                            {option.values.map((value, index)=> (
+                              <option value={value} key={index}>{value}</option>
                             ))}
                           </select>
                         </div>
