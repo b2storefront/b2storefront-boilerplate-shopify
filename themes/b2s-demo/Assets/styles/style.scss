@@ -1,5 +1,7 @@
 @import "./fonts.scss";
 @import "./bootstrap/bootstrap.min.css";
+@import '../../../../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss';
+@import '../../../../node_modules/@glidejs/glide/src/assets/sass/glide.theme.scss';
 
 $maincolor: #fbb03b;
 
@@ -123,7 +125,7 @@ a {
             }
 
             .nav-item {
-
+                position: relative;
                 .nav-link {
                     @media (max-width: 374px) {
                         padding-left: .5rem;
@@ -735,6 +737,8 @@ a {
     }
 
     &__item {
+        display: flex;
+        flex-direction: column;
         &--image {
             margin-bottom: 1.875rem;
             position: relative;
@@ -786,6 +790,7 @@ a {
         }
 
         &--price {
+            margin-top: auto;
             font-size: 20px;
             padding-bottom: .25rem;
         }
@@ -1325,7 +1330,7 @@ body.filters-active {
 }
 
 .footer {
-
+    margin-top: 50px;
     &__logo {
         margin-bottom: 2rem;
     }
@@ -1402,4 +1407,14 @@ body.filters-active {
     @media (max-width: 991px) {
         display: block;
     }
+}
+
+.cart-count {
+    position: absolute;
+    right: 0px;
+    top: -8px;
+}
+
+.product__images .glide__arrow {
+    border: none;
 }

@@ -13,7 +13,6 @@ import { getProductPath } from '@b2storefront/b2s_core/dist/utils/routing'
  **/
 const HomePageTmpl = ({ allCollections, allProducts, collections, products }) => {
   useCustomJavascript(() => {
-    
   })
 
   return (

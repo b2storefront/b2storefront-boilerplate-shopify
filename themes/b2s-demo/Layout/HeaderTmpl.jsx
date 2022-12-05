@@ -29,7 +29,7 @@ const HeaderTmpl = (props) => {
                       </li>                        
                       <li className="nav-item">
                         <a className="nav-link" href={props.cart ? props.cart.webUrl : '#'}><img src="/images/cart.svg" alt="Shopping Cart" width="19" height="19" /></a>
-                        ({props.cart?.lineItems?.length})
+                        <span className='cart-count'>({props.cart?.lineItems?.length})</span>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="#"><img src="/images/avatar.svg" alt="Account" width="19" height="19" /></a>
