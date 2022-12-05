@@ -6,14 +6,21 @@ import { getProductPath } from '@b2storefront/b2s_core/dist/utils/routing'
 import { Link } from 'gatsby'
 import { useCustomJavascript } from '@b2storefront/b2s_core/dist/hooks/useCustomJavascript'
 import { css } from '@emotion/react'
+import RangeSlider from 'react-range-slider-input';
+import 'react-range-slider-input/dist/style.css';
+import { useState, useEffect } from 'react';
 
 /** 
  * @param {CategoryPageTmpl.propTypes} props
  **/
 const CategoryPageTmpl = ({ category, products, productTypes, productOptions, handleFilterChange, isFilterSelected, page, pageSize, setPage, setPageSize, numberOfPages, handleSortOptionChange, filters, numberOfProducts }) => {
   useCustomJavascript(() => {
-
   })
+
+  const [prevVal, setPrevVal] = useState(0);
+  const [nextVal, setNextVal] = useState(0);
+  useEffect(() => {
+  });
 
   return (
     <Layout>
@@ -75,41 +82,22 @@ const CategoryPageTmpl = ({ category, products, productTypes, productOptions, ha
                   </div>
                 </div>
               </div>
-
               <div className="filter__item">
-                <div className="filter__item--head">
-                  <a
-                    className="filter__item--title"
-                    data-bs-toggle="collapse"
-                    href="#collapseFilter-1"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="collapseFilter-1"
-                  >
-                    <span>Price</span>
-                  </a>
-                </div>
-                <div className="filter__item--content collapse show">
-                  <div className="mb-3">
-                    <label className="form-label" htmlFor="price-from">
-                      From
-                    </label>
-                    <input
-                      className="form-control"
-                      onChange={(e) => handleFilterChange('price_from', e.target.value, true)}
-                      id="price-from"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label" htmlFor="price-to">
-                      To
-                    </label>
-                    <input
-                      className="form-control"
-                      onChange={(e) => handleFilterChange('price_to', e.target.value, true)}
-                      id="price-to"
-                    />
-                  </div>
+                <RangeSlider min={0} max={500} step={5} 
+                  onInput={(e) => {
+                    setPrevVal(e[0])
+                    setNextVal(e[1])
+                    handleFilterChange('price_from', e[0], true)
+                    handleFilterChange('price_to', e[1], true)
+                  }
+                }/>
+                <div className='range-values'>
+                  <span className='range-values__from'>
+                    {prevVal}
+                  </span>
+                  <span className='range-values__to'>
+                    {nextVal}
+                  </span>
                 </div>
               </div>
               {productOptions.map(productOption => (

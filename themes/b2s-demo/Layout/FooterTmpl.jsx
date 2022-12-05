@@ -1,5 +1,6 @@
 import React from 'react'
 import { useCustomJavascript } from '@b2storefront/b2s_core/dist/hooks/useCustomJavascript'
+import { Link } from 'gatsby'
 
 const FooterTmpl = () => {
   useCustomJavascript(() => {
@@ -34,7 +35,11 @@ const FooterTmpl = () => {
                         <li><a href="#">Shipping and Delivery</a></li>
                         <li><a href="#">Returns</a></li>
                         <li><a href="#">Payment Options</a></li>
-                        <li><a href="#">Contact Us</a></li>  
+                        <li>
+                        <Link to="/pages/contact/">
+                            Contact Us
+                        </Link>
+                        </li>  
                     </ul>
                 </div>
                 <div className="col-12 col-md-4 col-lg-2 footer__nav">
@@ -58,7 +63,7 @@ const FooterTmpl = () => {
         </div>
 
         <div className="footer__copyright">Design by iceo.co - © 2019. All rights reserved.</div>
-        <div className="modal fade" id="sizeModal" tabindex="-1" aria-labelledby="sizeModalLabel" aria-hidden="true">
+        <div className="modal fade" id="sizeModal" tabIndex="-1" aria-labelledby="sizeModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">

@@ -9,6 +9,7 @@ import { func, number } from 'prop-types'
 import { getProductPath, getCategoryPath } from '@b2storefront/b2s_core/dist/utils/routing'
 import { Link } from 'gatsby'
 import { css } from '@emotion/react'
+import Glide from '@glidejs/glide'
 
 /**
  * @param {ProductPageTmpl.propTypes} props
@@ -44,19 +45,23 @@ const ProductPageTmpl = (props) => {
           <div className="product">
             <div className="row">
               <div className="col-12 col-lg-6 product__images">
-                <div class="glide">
-                  <div class="glide__track" data-glide-el="track">
-                    <ul class="glide__slides">
-                      {props.product.images.map(image => (
-                        <li class="glide__slide">
+                <div className="glide">
+                  <div className="glide__track" data-glide-el="track">
+                    <ul className="glide__slides">
+                      {props.product.images.map((image, index) => (
+                        <li className="glide__slide" key={index}>
                           <img src={image.url} alt={props.product.title} />
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div class="glide__arrows" data-glide-el="controls">
-                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+                  <div className="glide__arrows" data-glide-el="controls">
+                    <button data-glide-dir="<" className="glide__arrow glide__arrow--left">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
+                    </button>
+                    <button data-glide-dir=">" className="glide__arrow glide__arrow--right">
+                      <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                      </button>
                   </div>
                 </div>
               </div >
@@ -110,9 +115,9 @@ const ProductPageTmpl = (props) => {
                       {option.name !== 'Color' && (
                         <div className="option-list">
                           <select className="form-select form-select-inline" aria-label="Default select example" onChange={(e) => props.handleSelectOption(option.id, e.target.value)}>
-                            <option selected>Select value</option>
-                            {option.values.map(value => (
-                              <option value={value}>{value}</option>
+                            <option defaultValue>Select value</option>
+                            {option.values.map((value, index)=> (
+                              <option value={value} key={index}>{value}</option>
                             ))}
                           </select>
                         </div>
@@ -161,7 +166,7 @@ const ProductPageTmpl = (props) => {
                 </li>
               </ul>
               <div className="tab-content" id="productTabContent">
-                <div className="tab-pane fade show active" id="desc-tab-pane" role="tabpanel" aria-labelledby="desc-tab" tabindex="0">
+                <div className="tab-pane fade show active" id="desc-tab-pane" role="tabpanel" aria-labelledby="desc-tab" tabIndex="0">
                   <div className="row">
                     <div className="col-12 col-lg-7 desc-details">
                       <div className="desc-title">Details and product description</div>
@@ -181,7 +186,7 @@ const ProductPageTmpl = (props) => {
                     </div>
                   </div>
                 </div>
-                <div className="tab-pane fade" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
+                <div className="tab-pane fade" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabIndex="0">
                   <div className="row">
                     <div className="col-12 col-lg-6">
                       <div className="review__total">
@@ -368,9 +373,6 @@ const ProductPageTmpl = (props) => {
 
 export const ProductHeadScripts = ({ product }) => (
   <>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/glide.min.js" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css" integrity="sha512-YQlbvfX5C6Ym6fTUSZ9GZpyB3F92hmQAZTO5YjciedwAaGRI9ccNs4iw2QTCJiSPheUQZomZKHQtuwbHkA9lgw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.theme.min.css" integrity="sha512-wCwx+DYp8LDIaTem/rpXubV/C1WiNRsEVqoztV0NZm8tiTvsUeSlA/Uz02VTGSiqfzAHD4RnqVoevMcRZgYEcQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </>
 )
 

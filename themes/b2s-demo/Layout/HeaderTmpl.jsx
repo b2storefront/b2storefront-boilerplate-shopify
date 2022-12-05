@@ -29,7 +29,7 @@ const HeaderTmpl = (props) => {
                       </li>                        
                       <li className="nav-item">
                         <a className="nav-link" href={props.cart ? props.cart.webUrl : '#'}><img src="/images/cart.svg" alt="Shopping Cart" width="19" height="19" /></a>
-                        ({props.cart?.lineItems?.length})
+                        <span className='cart-count'>({props.cart?.lineItems?.length})</span>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="#"><img src="/images/avatar.svg" alt="Account" width="19" height="19" /></a>
@@ -40,9 +40,15 @@ const HeaderTmpl = (props) => {
                   </button>                    
                   <div className="collapse navbar-collapse navbar-menu" id="navbarMenu">
                       <div className="navbar-nav">
-                          <a className="nav-link" href="#">Men</a>
-                          <a className="nav-link" href="#">Women</a>
-                          <a className="nav-link" href="#">Kids</a>
+                          <Link className="nav-link" to="/collections/men/">
+                            Men
+                          </Link>
+                          <Link className="nav-link" to="/collections/women/">
+                            Women
+                          </Link>
+                          <Link className="nav-link" to="/collections/kid/">
+                            Kids
+                          </Link>
                       </div>
                   </div>
               </div>
