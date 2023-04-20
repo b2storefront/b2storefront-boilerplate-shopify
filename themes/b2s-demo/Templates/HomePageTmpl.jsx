@@ -24,7 +24,7 @@ const HomePageTmpl = ({ allCollections, allProducts, collections, products }) =>
       />
       <section className="section section-home-page">
         <div className="container">
-          <h1 className="text-center">New Arrivals</h1>
+          <h1 className="text-center">NibbaBooots</h1>
           <p className="text-center mb-5">See our newest products, just arrived to our online store!</p>
           <div className="categories__list">
             {collections['new-arrivals'].products.map((product) => (
